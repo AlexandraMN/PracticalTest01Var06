@@ -23,6 +23,7 @@ public class PracticalTest01Var06MainActivity extends AppCompatActivity {
     CheckBox mZeroCb;
     Button mPlayBtn;
     Random random = new Random();
+    Intent receive;
     final String[] choices = {"1", "2", "3", "*"};
 
     @Override
@@ -68,15 +69,33 @@ public class PracticalTest01Var06MainActivity extends AppCompatActivity {
                         + mZeroEt.getText().toString() + "  " + mOneEt.getText().toString());
 
                 Intent intent = new Intent(getApplicationContext(), PracticalTest01Var06SecondaryActivity.class);
-////                intent.putExtra("valueStar", mStarEt.getText().toString());
-////                intent.putExtra("valueZero", mZeroEt.getText().toString());
-////                intent.putExtra("valueOne", mStarEt.getText().toString());
-////                intent.putExtra("checked", numberOfCheckedCb);
-//
-                startActivity(intent);
+                intent.putExtra("valueStar", mStarEt.getText().toString());
+                intent.putExtra("valueZero", mZeroEt.getText().toString());
+                intent.putExtra("valueOne", mStarEt.getText().toString());
+                intent.putExtra("checked", numberOfCheckedCb);
 
+                startActivity(intent);
             }
+
         });
 
+
+
+    }
+
+    @Override
+    protected void onResume() {
+
+//        Intent myint = getIntent();
+//
+//        String score;
+////
+//        if (myint != null) {
+////            if (myint.getExtras().containsKey("final")) {
+////                score = myint.getStringExtra("final");
+////                Toast.makeText(this, "Score is " + score, Toast.LENGTH_LONG);
+////            }
+//        }
+        super.onResume();
     }
 }

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -22,8 +23,8 @@ public class PracticalTest01Var06SecondaryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_practical_test01_var06_secondary);
 
-        score.findViewById(R.id.score);
-        okBtn.findViewById(R.id.ok_btn);
+        score = findViewById(R.id.score);
+        okBtn = findViewById(R.id.ok_btn);
 
         Intent intent = getIntent();
         int numberStars;
@@ -84,6 +85,15 @@ public class PracticalTest01Var06SecondaryActivity extends AppCompatActivity {
                 }
 
             }
+
+            okBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent first = new Intent(getApplicationContext(), PracticalTest01Var06MainActivity.class);
+                    first.putExtra("final", score.getText().toString());
+                    startActivity(first);
+                }
+            });
 
         }
     }
